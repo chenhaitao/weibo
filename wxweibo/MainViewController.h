@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SinaWeibo.h"
 
-@interface MainViewController : UITabBarController
+@interface MainViewController : UITabBarController <SinaWeiboDelegate>
+
+@property (nonatomic,strong) UIView *tabbarView;
 
 @end

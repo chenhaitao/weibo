@@ -24,7 +24,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        self.tabBar.hidden = YES;
     }
     return self;
 }
@@ -33,6 +33,44 @@
 {
     [super viewDidLoad];
     [self  _initViewController];
+    [self _initTabbarView];
+}
+
+- (void)_initTabbarView
+{
+    self.tabbarView = [[[UIView alloc] initWithFrame:CGRectMake(0, kScreenHight - 49 -20, kScreenWidth, 49)] autorelease];
+    self.tabbarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background"]];
+    
+    NSArray *tabbarItemImages = @[@"tabbar_home",@"tabbar_message_center",@"tabbar_profile",@"tabbar_discover",@"tabbar_more"];
+    NSArray *tabbarItemHighlightedImages = @[@"tabbar_home_highlighted",@"tabbar_message_center_highlighted",@"tabbar_profile_highlighted",@"tabbar_discover_highlighted",@"tabbar_more_highlighted"];
+    for (int i=0; i<tabbarItemImages.count; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.tag = i;
+        [button setImage:[UIImage imageNamed:tabbarItemImages[i]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:tabbarItemHighlightedImages[i]] forState:UIControlStateHighlighted];
+        button.frame = CGRectMake(((kScreenWidth/5)-30)/2 + (kScreenWidth/5 * i), (49-30)/2, 30, 30);
+        [button addTarget:self action:@selector(selectTabbarItem:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(doubleSelectTabbarItem:) forControlEvents:UIControlEventTouchDownRepeat];
+        [self.tabbarView addSubview:button];
+    }
+    
+    
+    [self.view addSubview:self.tabbarView];
+}
+
+- (void)selectTabbarItem:(UIButton *)button
+{
+    self.selectedIndex = button.tag;
+}
+
+- (void)doubleSelectTabbarItem:(UIButton *)button
+{
+    UIViewController *ctrl = self.viewControllers[button.tag];
+    if ([ctrl isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = (UINavigationController *)ctrl;
+        [nav popToRootViewControllerAnimated:YES];
+    }
+    
 }
 
 - (void)_initViewController
@@ -61,7 +99,63 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+#pragma mark sinaweibo delegate
+- (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo
+{
+
+}
+
+- (void)sinaweiboDidLogOut:(SinaWeibo *)sinaweibo
+{
+
+}
+
+- (void)sinaweiboLogInDidCancel:(SinaWeibo *)sinaweibo
+{
+
+}
+
+- (void)sinaweibo:(SinaWeibo *)sinaweibo logInDidFailWithError:(NSError *)error
+{
+
+}
+
+- (void)sinaweibo:(SinaWeibo *)sinaweibo accessTokenInvalidOrExpired:(NSError *)error
+{
+
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

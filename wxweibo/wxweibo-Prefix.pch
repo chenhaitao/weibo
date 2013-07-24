@@ -12,4 +12,11 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <QuartzCore/QuartzCore.h>
+    #import "Content.h"
 #endif
+
+//获取设备的高度
+#define kScreenHight [UIScreen mainScreen].bounds.size.height
+
+//获取设备的宽度
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
