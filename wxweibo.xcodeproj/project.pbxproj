@@ -36,6 +36,7 @@
 		5FA118E1179FA79D00AEB391 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = 5FA118E0179FA79D00AEB391 /* Skins */; };
 		5FA118E5179FA83A00AEB391 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA118E4179FA83A00AEB391 /* ThemeManager.m */; };
 		5FA118E7179FA95C00AEB391 /* themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA118E6179FA95C00AEB391 /* themes.plist */; };
+		5FA118EA179FB78100AEB391 /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA118E9179FB78100AEB391 /* ThemeButton.m */; };
 		5FA424DC179D6BD70001A0E8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DA179D6BD70001A0E8 /* HomeViewController.m */; };
 		5FA424DD179D6BD70001A0E8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */; };
 		5FA424E1179D6C9F0001A0E8 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DF179D6C9E0001A0E8 /* MessageViewController.m */; };
@@ -145,6 +146,8 @@
 		5FA118E3179FA83A00AEB391 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
 		5FA118E4179FA83A00AEB391 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
 		5FA118E6179FA95C00AEB391 /* themes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = themes.plist; sourceTree = "<group>"; };
+		5FA118E8179FB78100AEB391 /* ThemeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeButton.h; sourceTree = "<group>"; };
+		5FA118E9179FB78100AEB391 /* ThemeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
 		5FA424D9179D6BD70001A0E8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		5FA424DA179D6BD70001A0E8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 				5FA118E3179FA83A00AEB391 /* ThemeManager.h */,
 				5FA118E4179FA83A00AEB391 /* ThemeManager.m */,
 				5FA118E6179FA95C00AEB391 /* themes.plist */,
+				5FA118E8179FB78100AEB391 /* ThemeButton.h */,
+				5FA118E9179FB78100AEB391 /* ThemeButton.m */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -660,6 +665,7 @@
 				5FD5E3EB179F772900CFD0F8 /* SinaWeiboAuthorizeView.m in Sources */,
 				5FD5E3EC179F772900CFD0F8 /* SinaWeiboRequest.m in Sources */,
 				5FA118E5179FA83A00AEB391 /* ThemeManager.m in Sources */,
+				5FA118EA179FB78100AEB391 /* ThemeButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
