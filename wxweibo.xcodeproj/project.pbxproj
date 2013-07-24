@@ -33,6 +33,7 @@
 		5F9848D8179C2AE6004CDE73 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9848D7179C2AE6004CDE73 /* MainViewController.m */; };
 		5F9848DC179C2B08004CDE73 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9848DB179C2B08004CDE73 /* BaseViewController.m */; };
 		5F9848DF179C2FA4004CDE73 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9848DE179C2FA4004CDE73 /* BaseNavigationController.m */; };
+		5FA118E1179FA79D00AEB391 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = 5FA118E0179FA79D00AEB391 /* Skins */; };
 		5FA424DC179D6BD70001A0E8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DA179D6BD70001A0E8 /* HomeViewController.m */; };
 		5FA424DD179D6BD70001A0E8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */; };
 		5FA424E1179D6C9F0001A0E8 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DF179D6C9E0001A0E8 /* MessageViewController.m */; };
@@ -138,6 +139,7 @@
 		5F9848DB179C2B08004CDE73 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		5F9848DD179C2FA4004CDE73 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		5F9848DE179C2FA4004CDE73 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		5FA118E0179FA79D00AEB391 /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Skins; sourceTree = "<group>"; };
 		5FA424D9179D6BD70001A0E8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		5FA424DA179D6BD70001A0E8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 		5F984890179C246B004CDE73 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				5FA118E0179FA79D00AEB391 /* Skins */,
 				5FD5E3DB179F772900CFD0F8 /* sinaweibo_ios_sdk */,
 				5FA424F2179D79F60001A0E8 /* 图片 */,
 				5F9848CB179C25B6004CDE73 /* FontLabel */,
@@ -600,6 +603,7 @@
 				5FD4BAF4179F6D2F0075380A /* LeftViewController.xib in Resources */,
 				5FD4BAF9179F6D480075380A /* RightViewController.xib in Resources */,
 				5FD5E3E9179F772900CFD0F8 /* SinaWeibo.bundle in Resources */,
+				5FA118E1179FA79D00AEB391 /* Skins in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
