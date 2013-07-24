@@ -7,12 +7,20 @@
 //
 
 #import "BaseViewController.h"
+#import "AppDelegate.h"
 
 @interface BaseViewController ()
 
 @end
 
 @implementation BaseViewController
+
+- (SinaWeibo *)sinaWeibo
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    return appDelegate.sinaWeibo;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

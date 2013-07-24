@@ -105,12 +105,16 @@
 #pragma mark sinaweibo delegate
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo
 {
-
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSDictionary *dic = @{sinaweibo.accessToken :@"accessTokenKey",sinaweibo.expirationDate:@"expirationDateKey",sinaweibo.userID:@"userIDKey"};
+    [userDefault setObject:dic forKey:@"SinaWeiboAuthData"];
+    [userDefault synchronize];
 }
 
 - (void)sinaweiboDidLogOut:(SinaWeibo *)sinaweibo
 {
-
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault removeObjectForKey:@"SinaWeiboAuthData"];
 }
 
 - (void)sinaweiboLogInDidCancel:(SinaWeibo *)sinaweibo
@@ -127,6 +131,8 @@
 {
 
 }
+
+#pragma mark -
 
 @end
 

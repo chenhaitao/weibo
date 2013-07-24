@@ -27,7 +27,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-   self.mainViewController = [[[MainViewController alloc]  init] autorelease];
+    
+    self.mainViewController = [[[MainViewController alloc]  init] autorelease];
     LeftViewController *leftViewController = [[LeftViewController alloc] init];
     RightViewController *rightViewController = [[RightViewController alloc] init];
     
@@ -36,10 +37,11 @@
     menuViewController.leftViewController = leftViewController;
     menuViewController.rightViewController = rightViewController;
     
+    //初始化微博
+    [self _initSinaWeibo];
+    
     self.window.rootViewController = menuViewController;
     [menuViewController release];
-    
-    [self _initSinaWeibo];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
