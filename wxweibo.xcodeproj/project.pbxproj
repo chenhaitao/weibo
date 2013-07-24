@@ -34,6 +34,8 @@
 		5F9848DC179C2B08004CDE73 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9848DB179C2B08004CDE73 /* BaseViewController.m */; };
 		5F9848DF179C2FA4004CDE73 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9848DE179C2FA4004CDE73 /* BaseNavigationController.m */; };
 		5FA118E1179FA79D00AEB391 /* Skins in Resources */ = {isa = PBXBuildFile; fileRef = 5FA118E0179FA79D00AEB391 /* Skins */; };
+		5FA118E5179FA83A00AEB391 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA118E4179FA83A00AEB391 /* ThemeManager.m */; };
+		5FA118E7179FA95C00AEB391 /* themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA118E6179FA95C00AEB391 /* themes.plist */; };
 		5FA424DC179D6BD70001A0E8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DA179D6BD70001A0E8 /* HomeViewController.m */; };
 		5FA424DD179D6BD70001A0E8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */; };
 		5FA424E1179D6C9F0001A0E8 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DF179D6C9E0001A0E8 /* MessageViewController.m */; };
@@ -140,6 +142,9 @@
 		5F9848DD179C2FA4004CDE73 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		5F9848DE179C2FA4004CDE73 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		5FA118E0179FA79D00AEB391 /* Skins */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Skins; sourceTree = "<group>"; };
+		5FA118E3179FA83A00AEB391 /* ThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
+		5FA118E4179FA83A00AEB391 /* ThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeManager.m; sourceTree = "<group>"; };
+		5FA118E6179FA95C00AEB391 /* themes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = themes.plist; sourceTree = "<group>"; };
 		5FA424D9179D6BD70001A0E8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		5FA424DA179D6BD70001A0E8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -256,6 +261,7 @@
 		5F98486B179C14D6004CDE73 /* wxweibo */ = {
 			isa = PBXGroup;
 			children = (
+				5FA118E2179FA80F00AEB391 /* Theme */,
 				5F984874179C14D6004CDE73 /* AppDelegate.h */,
 				5F984875179C14D6004CDE73 /* AppDelegate.m */,
 				5F9848D6179C2AE6004CDE73 /* MainViewController.h */,
@@ -374,6 +380,16 @@
 				5F9848DE179C2FA4004CDE73 /* BaseNavigationController.m */,
 			);
 			name = BaseViewController;
+			sourceTree = "<group>";
+		};
+		5FA118E2179FA80F00AEB391 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				5FA118E3179FA83A00AEB391 /* ThemeManager.h */,
+				5FA118E4179FA83A00AEB391 /* ThemeManager.m */,
+				5FA118E6179FA95C00AEB391 /* themes.plist */,
+			);
+			name = Theme;
 			sourceTree = "<group>";
 		};
 		5FA424D4179D6A8E0001A0E8 /* Home */ = {
@@ -604,6 +620,7 @@
 				5FD4BAF9179F6D480075380A /* RightViewController.xib in Resources */,
 				5FD5E3E9179F772900CFD0F8 /* SinaWeibo.bundle in Resources */,
 				5FA118E1179FA79D00AEB391 /* Skins in Resources */,
+				5FA118E7179FA95C00AEB391 /* themes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +659,7 @@
 				5FD5E3EA179F772900CFD0F8 /* SinaWeibo.m in Sources */,
 				5FD5E3EB179F772900CFD0F8 /* SinaWeiboAuthorizeView.m in Sources */,
 				5FD5E3EC179F772900CFD0F8 /* SinaWeiboRequest.m in Sources */,
+				5FA118E5179FA83A00AEB391 /* ThemeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
