@@ -37,6 +37,9 @@
 		5FA118E5179FA83A00AEB391 /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA118E4179FA83A00AEB391 /* ThemeManager.m */; };
 		5FA118E7179FA95C00AEB391 /* themes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FA118E6179FA95C00AEB391 /* themes.plist */; };
 		5FA118EA179FB78100AEB391 /* ThemeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA118E9179FB78100AEB391 /* ThemeButton.m */; };
+		5FA118ED179FC94900AEB391 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA118EC179FC94900AEB391 /* Factory.m */; };
+		5FA118F0179FCBBF00AEB391 /* ThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA118EF179FCBBF00AEB391 /* ThemeViewController.m */; };
+		5FA118F2179FCBE300AEB391 /* ThemeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA118F1179FCBE300AEB391 /* ThemeViewController.xib */; };
 		5FA424DC179D6BD70001A0E8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DA179D6BD70001A0E8 /* HomeViewController.m */; };
 		5FA424DD179D6BD70001A0E8 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */; };
 		5FA424E1179D6C9F0001A0E8 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424DF179D6C9E0001A0E8 /* MessageViewController.m */; };
@@ -148,6 +151,11 @@
 		5FA118E6179FA95C00AEB391 /* themes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = themes.plist; sourceTree = "<group>"; };
 		5FA118E8179FB78100AEB391 /* ThemeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeButton.h; sourceTree = "<group>"; };
 		5FA118E9179FB78100AEB391 /* ThemeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeButton.m; sourceTree = "<group>"; };
+		5FA118EB179FC94900AEB391 /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		5FA118EC179FC94900AEB391 /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		5FA118EE179FCBBF00AEB391 /* ThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeViewController.h; sourceTree = "<group>"; };
+		5FA118EF179FCBBF00AEB391 /* ThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeViewController.m; sourceTree = "<group>"; };
+		5FA118F1179FCBE300AEB391 /* ThemeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeViewController.xib; sourceTree = "<group>"; };
 		5FA424D9179D6BD70001A0E8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		5FA424DA179D6BD70001A0E8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -393,6 +401,8 @@
 				5FA118E6179FA95C00AEB391 /* themes.plist */,
 				5FA118E8179FB78100AEB391 /* ThemeButton.h */,
 				5FA118E9179FB78100AEB391 /* ThemeButton.m */,
+				5FA118EB179FC94900AEB391 /* Factory.h */,
+				5FA118EC179FC94900AEB391 /* Factory.m */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -449,6 +459,9 @@
 				5FA424ED179D6DC10001A0E8 /* MoreViewController.h */,
 				5FA424EE179D6DC10001A0E8 /* MoreViewController.m */,
 				5FA424EF179D6DC10001A0E8 /* MoreViewController.xib */,
+				5FA118EE179FCBBF00AEB391 /* ThemeViewController.h */,
+				5FA118EF179FCBBF00AEB391 /* ThemeViewController.m */,
+				5FA118F1179FCBE300AEB391 /* ThemeViewController.xib */,
 			);
 			name = More;
 			sourceTree = "<group>";
@@ -626,6 +639,7 @@
 				5FD5E3E9179F772900CFD0F8 /* SinaWeibo.bundle in Resources */,
 				5FA118E1179FA79D00AEB391 /* Skins in Resources */,
 				5FA118E7179FA95C00AEB391 /* themes.plist in Resources */,
+				5FA118F2179FCBE300AEB391 /* ThemeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +680,8 @@
 				5FD5E3EC179F772900CFD0F8 /* SinaWeiboRequest.m in Sources */,
 				5FA118E5179FA83A00AEB391 /* ThemeManager.m in Sources */,
 				5FA118EA179FB78100AEB391 /* ThemeButton.m in Sources */,
+				5FA118ED179FC94900AEB391 /* Factory.m in Sources */,
+				5FA118F0179FCBBF00AEB391 /* ThemeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

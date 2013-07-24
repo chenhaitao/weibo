@@ -56,7 +56,7 @@
     if (self) {
         self.imageName = imageName;
         self.highlightedImageName = highlightedImageName;
-        [self loadImage];
+       [self loadImage];
     }
     
     return self;
