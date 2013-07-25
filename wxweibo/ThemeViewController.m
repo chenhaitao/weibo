@@ -13,7 +13,7 @@
 @interface ThemeViewController ()
 
 @property (nonatomic,strong) NSArray *themes;
-
+@property (nonatomic,strong) NSIndexPath *selectedIndexPath;
 @end
 
 @implementation ThemeViewController
@@ -38,7 +38,7 @@
 #pragma mark - UITableView delegate and dataSource methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.themes.count;
+    return self.themes.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -49,15 +49,32 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
     }
+    if (indexPath.row == 0) {
+         cell.textLabel.text = @"默认";
+    }else{
+        cell.textLabel.text = self.themes[indexPath.row - 1];
+    }
     
-    cell.textLabel.text = self.themes[indexPath.row];
+    if (self.selectedIndexPath.row == indexPath.row) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ThemeManager *themeManager = [ThemeManager shareInstance];
-    themeManager.themeName = self.themes[indexPath.row];
+    if (indexPath.row == 0) {
+        themeManager.themeName =nil;
+    }else{
+        themeManager.themeName = self.themes[indexPath.row - 1];
+    }
+    
+    self.selectedIndexPath = indexPath;
+    [tableView reloadData];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kThemeChangedNotification object:nil];
 }

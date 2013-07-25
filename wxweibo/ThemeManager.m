@@ -94,7 +94,7 @@ static ThemeManager *shareInstance;
     NSString *imagePath = [[self _themePath] stringByAppendingPathComponent:imageName];
     UIImage *image = [[UIImage alloc] initWithContentsOfFile:imagePath];
     
-    return image;
+    return [image autorelease];
 }
 
 
