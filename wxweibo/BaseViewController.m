@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 #import "AppDelegate.h"
+#import "ThemeButton.h"
+#import "Factory.h"
 
 @interface BaseViewController ()
 
@@ -26,21 +28,64 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
 
+
+
+- (void)addCustomBackItem
+{
+    if (self.navigationController.viewControllers[0] != self) {
+        UIButton *button = [Factory createButtonWithImage:@"navigationbar_back.png" andHighlightedImage:@"navigationbar_back_highlighted.png"];
+        button.frame = CGRectMake(0, 0, 24, 24);
+        [button addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.leftBarButtonItem = barButtonItem;
+        [barButtonItem release];
+    }
+}
+
+- (void)backButtonAction:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self addCustomBackItem];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

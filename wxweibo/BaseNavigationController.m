@@ -7,6 +7,8 @@
 //
 
 #import "BaseNavigationController.h"
+#import "ThemeManager.h"
+#import "ThemeButton.h"
 
 @interface BaseNavigationController ()
 
@@ -18,25 +20,43 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeChanged:) name:kThemeChangedNotification  object:nil];
+        
     }
     return self;
+}
+
+- (void)themeChanged:(NSNotification *)notification
+{
+    [self customNavigationbarWithThemeImage];
+}
+
+- (void)customNavigationbarWithThemeImage
+{
+    if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        
+        UIImage *image = [[ThemeManager shareInstance] themeImageWithName:@"navigationbar_background.png"];
+        [self.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    }else{
+        [self.navigationBar setNeedsDisplay];
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
-    
-    if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
-        [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbar_background"] forBarMetrics:UIBarMetricsDefault];
-    }
+    [self customNavigationbarWithThemeImage];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

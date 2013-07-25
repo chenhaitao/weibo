@@ -14,6 +14,8 @@
 #import "MoreViewController.h"
 #import "BaseNavigationController.h"
 #import "Factory.h"
+#import "ThemeButton.h"
+#import "ThemeManager.h"
 
 @interface MainViewController ()
 
@@ -26,8 +28,26 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBar.hidden = YES;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(themeChanged:) name:kThemeChangedNotification object:nil];
     }
     return self;
+}
+
+- (void)themeChanged:(NSNotification *)nitification
+{
+    [self tabbarBackgroundThemeImage];
+}
+
+- (void)tabbarBackgroundThemeImage
+{
+    UIImage *image = [[ThemeManager shareInstance] themeImageWithName:@"tabbar_background.png"];
+    self.tabbarView.backgroundColor = [UIColor colorWithPatternImage:image];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
 }
 
 - (void)viewDidLoad
@@ -40,17 +60,13 @@
 - (void)_initTabbarView
 {
     self.tabbarView = [[[UIView alloc] initWithFrame:CGRectMake(0, kScreenHight - 49 -20, kScreenWidth, 49)] autorelease];
-    self.tabbarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar_background"]];
+    [self tabbarBackgroundThemeImage];
     
     NSArray *tabbarItemImages = @[@"tabbar_home.png",@"tabbar_message_center.png",@"tabbar_profile.png",@"tabbar_discover.png",@"tabbar_more.png"];
     NSArray *tabbarItemHighlightedImages = @[@"tabbar_home_highlighted.png",@"tabbar_message_center_highlighted.png",@"tabbar_profile_highlighted.png",@"tabbar_discover_highlighted.png",@"tabbar_more_highlighted.png"];
     for (int i=0; i<tabbarItemImages.count; i++) {
-        //UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-       // ThemeButton *button = [[ThemeButton alloc] initWithImage:tabbarItemImages[i] andHighlightedImage:tabbarItemHighlightedImages[i]];
         UIButton *button = [Factory createButtonWithImage:tabbarItemImages[i] andHighlightedImage:tabbarItemHighlightedImages[i]];
         button.tag = i;
-//        [button setImage:[UIImage imageNamed:tabbarItemImages[i]] forState:UIControlStateNormal];
-//        [button setImage:[UIImage imageNamed:tabbarItemHighlightedImages[i]] forState:UIControlStateHighlighted];
         button.frame = CGRectMake(((kScreenWidth/5)-30)/2 + (kScreenWidth/5 * i), (49-30)/2, 30, 30);
         [button addTarget:self action:@selector(selectTabbarItem:) forControlEvents:UIControlEventTouchUpInside];
         [button addTarget:self action:@selector(doubleSelectTabbarItem:) forControlEvents:UIControlEventTouchDownRepeat];

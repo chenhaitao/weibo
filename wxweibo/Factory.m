@@ -13,12 +13,12 @@
 
 + (UIButton *)createButtonWithImage:(NSString *)imageName andHighlightedImage:(NSString *)highlighttedImageName
 {
-   return  [[ThemeButton alloc] initWithImage:imageName andHighlightedImage:highlighttedImageName];
+   return  [[[ThemeButton alloc] initWithImage:imageName andHighlightedImage:highlighttedImageName] autorelease];
 }
 
 + (UIButton *)createButtonWithBackgroundImage:(NSString *)backgroundImageName andHightedImage:(NSString *)highlighttedBackgroundImageName
 {
-    return [[ThemeButton alloc]  initWithBackgroundImage:backgroundImageName andHighlightedImage:highlighttedBackgroundImageName];
+    return [[[ThemeButton alloc]  initWithBackgroundImage:backgroundImageName andHighlightedImage:highlighttedBackgroundImageName] autorelease];
 }
 
 @end
