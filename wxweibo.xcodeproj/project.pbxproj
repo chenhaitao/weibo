@@ -477,6 +477,8 @@
 		5F15BB6D17A0B9D700990B3E /* 附近的人.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F15B99917A0B9D700990B3E /* 附近的人.jpg */; };
 		5F15BB7017A0CA2900990B3E /* ThemeImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15BB6F17A0CA2900990B3E /* ThemeImageView.m */; };
 		5F15BB7317A0EC9C00990B3E /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15BB7217A0EC9C00990B3E /* ThemeLabel.m */; };
+		5F15BB7917A120F100990B3E /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15BB7817A120F100990B3E /* WeiboModel.m */; };
+		5F15BB7C17A1211200990B3E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15BB7B17A1211200990B3E /* UserModel.m */; };
 		5F984866179C14D6004CDE73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F984865179C14D6004CDE73 /* UIKit.framework */; };
 		5F984868179C14D6004CDE73 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F984867179C14D6004CDE73 /* Foundation.framework */; };
 		5F98486A179C14D6004CDE73 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F984869179C14D6004CDE73 /* CoreGraphics.framework */; };
@@ -1004,6 +1006,10 @@
 		5F15BB6F17A0CA2900990B3E /* ThemeImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeImageView.m; sourceTree = "<group>"; };
 		5F15BB7117A0EC9C00990B3E /* ThemeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeLabel.h; sourceTree = "<group>"; };
 		5F15BB7217A0EC9C00990B3E /* ThemeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeLabel.m; sourceTree = "<group>"; };
+		5F15BB7717A120F100990B3E /* WeiboModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboModel.h; sourceTree = "<group>"; };
+		5F15BB7817A120F100990B3E /* WeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboModel.m; sourceTree = "<group>"; };
+		5F15BB7A17A1211200990B3E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		5F15BB7B17A1211200990B3E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		5F984862179C14D6004CDE73 /* wxweibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wxweibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F984865179C14D6004CDE73 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F984867179C14D6004CDE73 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1681,6 +1687,10 @@
 		5F984889179C228F004CDE73 /* dataModel */ = {
 			isa = PBXGroup;
 			children = (
+				5F15BB7A17A1211200990B3E /* UserModel.h */,
+				5F15BB7B17A1211200990B3E /* UserModel.m */,
+				5F15BB7717A120F100990B3E /* WeiboModel.h */,
+				5F15BB7817A120F100990B3E /* WeiboModel.m */,
 				5F98488A179C22B8004CDE73 /* WXBaseModel.h */,
 				5F98488B179C22B8004CDE73 /* WXBaseModel.m */,
 			);
@@ -2438,6 +2448,8 @@
 				5FA118F0179FCBBF00AEB391 /* ThemeViewController.m in Sources */,
 				5F15BB7017A0CA2900990B3E /* ThemeImageView.m in Sources */,
 				5F15BB7317A0EC9C00990B3E /* ThemeLabel.m in Sources */,
+				5F15BB7917A120F100990B3E /* WeiboModel.m in Sources */,
+				5F15BB7C17A1211200990B3E /* UserModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2514,6 +2526,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wxweibo/wxweibo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "wxweibo/wxweibo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -2525,6 +2538,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "wxweibo/wxweibo-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "wxweibo/wxweibo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
