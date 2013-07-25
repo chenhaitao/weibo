@@ -65,6 +65,18 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)setTitle:(NSString *)title
+{
+    [super setTitle:title];
+    
+    UILabel *titleLabel = [Factory createLabelWithFontColorName:@"kNavigationBarTitleLabel"];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.text = title;
+    [titleLabel sizeToFit];
+    
+    self.navigationItem.titleView = titleLabel;
+}
+
 @end
 
 

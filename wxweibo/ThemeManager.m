@@ -97,6 +97,29 @@ static ThemeManager *shareInstance;
     return [image autorelease];
 }
 
+- (void)setThemeName:(NSString *)themeName
+{
+    if (_themeName != themeName) {
+        [_themeName release];
+        _themeName = [themeName retain];
+    }
+    
+    NSString *filePath = [[self _themePath] stringByAppendingPathComponent:@"fontColor.plist"];
+    self.labelThemesPlist = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    
+}
+
+
+- (UIColor *)themeColorWithName:(NSString *)name
+{
+    NSString *colorStr = self.labelThemesPlist[name];
+    NSArray *colors = [colorStr componentsSeparatedByString:@","];
+    if (colors.count == 3) {
+        UIColor *color = [UIColor colorWithRed:[colors[0] floatValue]/255.0 green:[colors[1] floatValue]/255.0 blue:[colors[2] floatValue]/255.0 alpha:1];
+        return color;
+    }
+    return nil;
+}
 
 @end
 

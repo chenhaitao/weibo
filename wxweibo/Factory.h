@@ -13,4 +13,8 @@
 + (UIButton *)createButtonWithImage:(NSString *)imageName andHighlightedImage:(NSString *)highlighttedImageName;
 + (UIButton *)createButtonWithBackgroundImage:(NSString *)backgroundImageName andHightedImage:(NSString *)highlighttedBackgroundImageName;
 
++ (UIImageView *)createImageViewWithImageName:(NSString *)imageName;
+
++ (UILabel *)createLabelWithFontColorName:(NSString *)fontColorName;
+
 @end

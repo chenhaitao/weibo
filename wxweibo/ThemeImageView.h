@@ -12,4 +12,6 @@
 
 @property (nonatomic,strong) NSString *imageName;
 
+- (id)initWithImageName:(NSString *)imageName;
+
 @end

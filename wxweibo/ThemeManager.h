@@ -11,10 +11,11 @@
 @interface ThemeManager : NSObject
 @property (nonatomic,strong) NSString *themeName;
 @property (nonatomic,strong) NSDictionary *themesPlist;
+@property (nonatomic,strong) NSDictionary *labelThemesPlist;
 
 
 + (id)shareInstance;
 
 - (UIImage *)themeImageWithName:(NSString *)imageName;
-
+- (UIColor *)themeColorWithName:(NSString *)name;
 @end

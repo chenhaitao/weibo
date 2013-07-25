@@ -8,6 +8,9 @@
 
 #import "Factory.h"
 #import "ThemeButton.h"
+#import "ThemeManager.h"
+#import "ThemeLabel.h"
+#import "ThemeImageView.h"
 
 @implementation Factory
 
@@ -19,6 +22,17 @@
 + (UIButton *)createButtonWithBackgroundImage:(NSString *)backgroundImageName andHightedImage:(NSString *)highlighttedBackgroundImageName
 {
     return [[[ThemeButton alloc]  initWithBackgroundImage:backgroundImageName andHighlightedImage:highlighttedBackgroundImageName] autorelease];
+}
+
+
++ (UIImageView *)createImageViewWithImageName:(NSString *)imageName
+{
+   return  [[[ThemeImageView alloc] initWithImageName:imageName] autorelease];
+}
+
++ (UILabel *)createLabelWithFontColorName:(NSString *)fontColorName
+{
+    return [[[ThemeLabel alloc] initWithColorName:fontColorName] autorelease];
 }
 
 @end
