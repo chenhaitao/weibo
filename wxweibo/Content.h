@@ -13,8 +13,7 @@
 
 #endif
 
-
 //weibo OAuthu2.0
-#define kAppKey @"3359697593"
-#define kAppSecret @"6aa950ac83e329d4b6b9f401d6cb8d3d"
+#define kAppKey @"1563880925"
+#define kAppSecret @"6004a8d9422d774cdd50ed00f7b58efe"
 #define kAppRedirectURI @"https://api.weibo.com/oauth2/default.html"

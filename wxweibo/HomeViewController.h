@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "ThemeImageView.h"
+#import "ThemeLabel.h"
 
 @interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate>
+@property (retain, nonatomic) IBOutlet ThemeImageView *testImageView;
+@property (retain, nonatomic) IBOutlet ThemeLabel *testLabel;
 
 @end

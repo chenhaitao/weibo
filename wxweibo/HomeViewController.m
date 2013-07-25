@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 
+
 @interface HomeViewController ()
 
 @end
@@ -28,6 +29,9 @@
     [super viewDidLoad];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"绑定帐户" style:UIBarButtonItemStylePlain target:self action:@selector(bindAction:)] autorelease];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction:)];
+    
+    self.testLabel.text = @"hello";
+    self.testLabel.colorName = @"kNavigationBarTitleLabel";
     
     //判断微博授权是否可用
     if (self.sinaWeibo.isLoggedIn) {
@@ -72,6 +76,11 @@
 }
 
 
+- (void)dealloc {
+    [_testImageView release];
+    [_testLabel release];
+    [super dealloc];
+}
 @end
 
 

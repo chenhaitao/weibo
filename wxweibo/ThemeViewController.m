@@ -9,6 +9,7 @@
 #import "ThemeViewController.h"
 #import "ThemeManager.h"
 #import "ThemeButton.h"
+#import "Factory.h"
 
 @interface ThemeViewController ()
 
@@ -48,11 +49,19 @@
     cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+        UILabel *label = [Factory createLabelWithFontColorName:@"kThemeListLabel"];
+        CGRect frame = cell.bounds;
+        frame.origin = CGPointMake(10, 5);
+        label.frame = frame;
+        label.tag = 1;
+        [cell addSubview:label];
+        
     }
+    UILabel *label = (UILabel *)[cell viewWithTag:1];
     if (indexPath.row == 0) {
-         cell.textLabel.text = @"默认";
+         label.text = @"默认";
     }else{
-        cell.textLabel.text = self.themes[indexPath.row - 1];
+        label.text = self.themes[indexPath.row - 1];
     }
     
     if (self.selectedIndexPath.row == indexPath.row) {
