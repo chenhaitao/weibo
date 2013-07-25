@@ -8,7 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface ThemeViewController : BaseViewController <UITableViewDelegate,UITableViewDataSource>
+@interface ThemeViewController : BaseViewController
+    <UITableViewDelegate,UITableViewDataSource>
 @property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 @end

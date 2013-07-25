@@ -12,6 +12,7 @@
 #import "LeftViewController.h"
 #import "RightViewController.h"
 #import "SinaWeibo.h"
+#import "ThemeManager.h"
 
 
 @implementation AppDelegate
@@ -24,9 +25,33 @@
     [super dealloc];
 }
 
+//自定义主题
+- (void)setTheme
+{
+    NSInteger row = [[NSUserDefaults standardUserDefaults] integerForKey:@"themeKey"];
+    switch (row) {
+        case 0:
+            [[ThemeManager shareInstance] setThemeName:@"默认"];
+            break;
+        case 1:
+            [[ThemeManager shareInstance] setThemeName:@"blue"];
+            break;
+        case 2:
+            [[ThemeManager shareInstance] setThemeName:@"pink"];
+            break;
+        default:
+            break;
+    }
+
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    
+    //自定义主题皮肤
+    [self setTheme];
     
     self.mainViewController = [[[MainViewController alloc]  init] autorelease];
     LeftViewController *leftViewController = [[LeftViewController alloc] init];

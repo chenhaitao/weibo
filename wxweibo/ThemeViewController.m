@@ -14,7 +14,7 @@
 @interface ThemeViewController ()
 
 @property (nonatomic,strong) NSArray *themes;
-@property (nonatomic,strong) NSIndexPath *selectedIndexPath;
+
 @end
 
 @implementation ThemeViewController
@@ -64,7 +64,9 @@
         label.text = self.themes[indexPath.row - 1];
     }
     
-    if (self.selectedIndexPath.row == indexPath.row) {
+    NSInteger row = [[NSUserDefaults standardUserDefaults] integerForKey:@"themeKey"];
+    
+    if (row == indexPath.row) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -82,7 +84,7 @@
         themeManager.themeName = self.themes[indexPath.row - 1];
     }
     
-    self.selectedIndexPath = indexPath;
+    [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:@"themeKey"];
     [tableView reloadData];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kThemeChangedNotification object:nil];
@@ -92,7 +94,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)dealloc {
