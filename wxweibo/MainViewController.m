@@ -124,10 +124,19 @@
 #pragma mark sinaweibo delegate
 - (void)sinaweiboDidLogIn:(SinaWeibo *)sinaweibo
 {
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSDictionary *dic = @{sinaweibo.accessToken :@"accessTokenKey",sinaweibo.expirationDate:@"expirationDateKey",sinaweibo.userID:@"userIDKey"};
-    [userDefault setObject:dic forKey:@"SinaWeiboAuthData"];
-    [userDefault synchronize];
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    NSDictionary *dic = @{sinaweibo.accessToken :@"accessTokenKey",sinaweibo.expirationDate:@"expirationDateKey",sinaweibo.userID:@"userIDKey"};
+//    [userDefault setObject:dic forKey:@"SinaWeiboAuthData"];
+//    [userDefault synchronize];
+    
+    //保存认证的数据到本地
+    NSDictionary *authData = [NSDictionary dictionaryWithObjectsAndKeys:
+                              sinaweibo.accessToken, @"AccessTokenKey",
+                              sinaweibo.expirationDate, @"ExpirationDateKey",
+                              sinaweibo.userID, @"UserIDKey",
+                              sinaweibo.refreshToken, @"refresh_token", nil];
+    [[NSUserDefaults standardUserDefaults] setObject:authData forKey:@"SinaWeiboAuthData"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)sinaweiboDidLogOut:(SinaWeibo *)sinaweibo

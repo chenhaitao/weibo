@@ -20,7 +20,7 @@
 - (SinaWeibo *)sinaWeibo
 {
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    return appDelegate.sinaWeibo;
+    return appDelegate.sinaweibo;
 }
 
 

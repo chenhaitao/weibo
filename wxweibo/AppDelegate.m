@@ -20,7 +20,7 @@
 {
     [_window release];
     self.mainViewController = nil;
-    self.sinaWeibo = nil;
+    self.sinaweibo = nil;
     [super dealloc];
 }
 
@@ -48,19 +48,18 @@
     return YES;
 }
 
-//初始化微博
-- (void)_initSinaWeibo
-{
-    self.sinaWeibo = [[SinaWeibo alloc] initWithAppKey:kAppKey  appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:self.mainViewController];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *paramsDic = [userDefaults objectForKey:@"SinaWeiboAuthData"];
+
+//初始化微博对象
+- (void)_initSinaWeibo {
+    _sinaweibo = [[SinaWeibo alloc] initWithAppKey:kAppKey appSecret:kAppSecret appRedirectURI:kAppRedirectURI andDelegate:self.mainViewController];
     
-    if ([paramsDic objectForKey:@"accessTokenKey"]
-        && [paramsDic objectForKey:@"expirationDateKey"]
-        && [paramsDic objectForKey:@"userIDKey"]) {
-        self.sinaWeibo.accessToken = [paramsDic objectForKey:@"accessTokenKey"];
-        self.sinaWeibo.expirationDate = [paramsDic objectForKey:@"expirationDateKey"];
-        self.sinaWeibo.userID = [paramsDic objectForKey:@"userIDKey"];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *sinaweiboInfo = [defaults objectForKey:@"SinaWeiboAuthData"];
+    if ([sinaweiboInfo objectForKey:@"AccessTokenKey"] && [sinaweiboInfo objectForKey:@"ExpirationDateKey"] && [sinaweiboInfo objectForKey:@"UserIDKey"])
+    {
+        _sinaweibo.accessToken = [sinaweiboInfo objectForKey:@"AccessTokenKey"];
+        _sinaweibo.expirationDate = [sinaweiboInfo objectForKey:@"ExpirationDateKey"];
+        _sinaweibo.userID = [sinaweiboInfo objectForKey:@"UserIDKey"];
     }
 }
 

@@ -30,7 +30,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction:)];
     
     //判断微博授权是否可用
-    if (self.sinaWeibo.isAuthValid) {
+    if (self.sinaWeibo.isLoggedIn) {
         [self loadData];
     }
 }

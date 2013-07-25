@@ -15,6 +15,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MainViewController *mainViewController;
-@property (strong, nonatomic) SinaWeibo *sinaWeibo;
+@property (strong, nonatomic) SinaWeibo *sinaweibo;
 
 @end
