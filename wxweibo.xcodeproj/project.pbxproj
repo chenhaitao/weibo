@@ -2520,6 +2520,7 @@
 				GCC_PREFIX_HEADER = "wxweibo/wxweibo-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "wxweibo/wxweibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
@@ -2534,6 +2535,7 @@
 				GCC_PREFIX_HEADER = "wxweibo/wxweibo-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "wxweibo/wxweibo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;

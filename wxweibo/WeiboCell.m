@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import <QuartzCore/QuartzCore.h>
 #import "WeiboView.h"
+#import "RegexKitLite.h"
 
 @interface WeiboCell ()
 
@@ -43,7 +44,7 @@
     if (self) {
         [self _initSubViews];
          self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+       
     }
     return self;
 }
@@ -120,11 +121,40 @@
     NSDate *createDate = [formatter dateFromString:createTime];
     [formatter setDateFormat:@"HH:mm M:dd"];
     NSString *dateStr = [formatter stringFromDate:createDate];
-    self.createlabel.text = dateStr;
-    self.createlabel.frame = CGRectMake(50, self.weiboView.bottom, 100, 20);
-    self.createlabel.textColor = [UIColor blueColor];
-    [self.createlabel sizeToFit];
+    if (dateStr.length > 0) {
+        self.createlabel.hidden = NO;
+        self.createlabel.text = dateStr;
+        self.createlabel.frame = CGRectMake(50, self.weiboView.bottom, 100, 20);
+        self.createlabel.textColor = [UIColor blueColor];
+        [self.createlabel sizeToFit];
+    }else{
+        self.createlabel.hidden = YES;
+    }
     
+    //微博来源
+    NSString *source = self.weiboModel.source;
+    NSString *regexStr = @">\\w+<";
+    NSArray *results = [source componentsMatchedByRegex:regexStr];
+    if (results.count) {
+        NSString *result = results[0];
+        NSRange range = {1,result.length-2};
+        result = [result substringWithRange:range];
+        if (result.length) {
+            self.sourceLabel.hidden = NO;
+            self.sourceLabel.frame = CGRectMake(self.createlabel.right+ 10,self.createlabel.top  , 200, 20);
+            self.sourceLabel.text = [NSString stringWithFormat:@"来自%@",result];
+            [self.sourceLabel sizeToFit];
+        }
+    }else{
+        self.sourceLabel.hidden = YES;
+    }
+    
+    
+    
+    //设置cell选中的背景颜色,选中背景会自动的帮你将view的高和宽进行适配
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.height)];
+    [view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"statusdetail_cell_sepatator.png"]]];
+    self.selectedBackgroundView = view;
     
 }
 
