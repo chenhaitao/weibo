@@ -1,0 +1,8 @@
+platform :ios ,'6.1'
+pod 'ASIHTTPRequest'
+pod 'RTLabel'
+pod 'MBProgressHUD'
+pod 'SinaWeibo'
+pod 'RegexKitLite'
+pod 'AnimatedGif'
+pod 'EGOTableViewPullRefresh'

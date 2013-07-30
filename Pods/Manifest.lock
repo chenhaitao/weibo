@@ -1,0 +1,43 @@
+PODS:
+  - AnimatedGif (0.0.1)
+  - ASIHTTPRequest (1.8.1):
+    - ASIHTTPRequest/ASIWebPageRequest
+    - ASIHTTPRequest/CloudFiles
+    - ASIHTTPRequest/S3
+    - Reachability
+  - ASIHTTPRequest/ASIWebPageRequest (1.8.1):
+    - Reachability
+  - ASIHTTPRequest/CloudFiles (1.8.1):
+    - Reachability
+  - ASIHTTPRequest/S3 (1.8.1):
+    - Reachability
+  - EGOTableViewPullRefresh (0.1.0)
+  - JSONKit (1.5pre)
+  - MBProgressHUD (0.7)
+  - Reachability (3.1.1)
+  - RegexKitLite (4.0)
+  - RTLabel (1.0)
+  - SinaWeibo (0.0.1):
+    - JSONKit
+
+DEPENDENCIES:
+  - AnimatedGif
+  - ASIHTTPRequest
+  - EGOTableViewPullRefresh
+  - MBProgressHUD
+  - RegexKitLite
+  - RTLabel
+  - SinaWeibo
+
+SPEC CHECKSUMS:
+  AnimatedGif: 0f5e3a9c3426d729a70e7933bf6445374daadfd8
+  ASIHTTPRequest: a411b8d0f006ed8fc24248be6a0c4ad2abc9b101
+  EGOTableViewPullRefresh: 6ba637ce6dd3186b503d2d91e6b3a08a26d650f5
+  JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
+  MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
+  Reachability: 2be6bc2fd2bd31d97f5db33e75e4b29c79e95883
+  RegexKitLite: 293ff6f3cf8f34277989a37802162c6961a2b35a
+  RTLabel: 124420c05d7897bf7f14b75a26f54f2932ac4ca5
+  SinaWeibo: d7cb18c0b5880a95c1b203842ab8dfdd0da106dc
+
+COCOAPODS: 0.22.3
