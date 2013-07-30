@@ -7,9 +7,12 @@
 //
 
 #import "HomeViewController.h"
-
+#import "WeiboModel.h"
+#import "WeiboCell.h"
 
 @interface HomeViewController ()
+
+@property (nonatomic,strong) NSMutableArray *weiboData;
 
 @end
 
@@ -34,6 +37,9 @@
     if (self.sinaWeibo.isLoggedIn) {
         [self loadData];
     }
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,11 +75,50 @@
 
 - (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result
 {
-    NSLog(@"%@",result);
+    NSArray *statuses = [result objectForKey:@"statuses"];
+    NSMutableArray *weibos = [NSMutableArray arrayWithCapacity:statuses.count];
+    for (NSDictionary *dic in statuses) {
+        WeiboModel *weibo = [[WeiboModel alloc] initWithDataDic:dic];
+        [weibos addObject:weibo];
+        [weibo release];
+    }
+    self.weiboData = weibos;
+    [self.tableView reloadData];
 }
+
+#pragma mark - UITableView delegate and datasource methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.weiboData.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WeiboCell *cell = nil;
+    static NSString *cellIdentifier = @"WeiboCell";
+    cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+    }
+   
+    cell.weiboModel = self.weiboData[indexPath.row];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat height = [WeiboView heightForWeiboView:self.weiboData[indexPath.row] andIsRepost:NO andIsDetail:NO];
+    
+    return height + 40;
+}
+
+#pragma mark -
 
 
 - (void)dealloc {
+    [_tableView release];
     [super dealloc];
 }
 @end

@@ -13,6 +13,7 @@
     #import <Foundation/Foundation.h>
     #import <QuartzCore/QuartzCore.h>
     #import "Content.h"
+    #import "UIViewExt.h"
 #endif
 
 //获取设备的高度

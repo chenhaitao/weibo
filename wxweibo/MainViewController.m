@@ -73,6 +73,10 @@
         [self.tabbarView addSubview:button];
     }
     
+    self.sliderView = [Factory createImageViewWithImageName:@"tabbar_slider.png" withEdgeInset:UIEdgeInsetsZero];
+    self.sliderView.backgroundColor = [UIColor clearColor];
+    self.sliderView.frame = CGRectMake((64-15)/2, 0, 15, 44);
+    [self.tabbarView addSubview:self.sliderView];
     
     [self.view addSubview:self.tabbarView];
 }
@@ -80,6 +84,11 @@
 - (void)selectTabbarItem:(UIButton *)button
 {
     self.selectedIndex = button.tag;
+    [UIView animateWithDuration:0.2 animations:^{
+       CGRect frame = self.sliderView.frame;
+        frame.origin.x = (64-15)/2 + button.tag *64;
+        self.sliderView.frame = frame;
+    }];
 }
 
 - (void)doubleSelectTabbarItem:(UIButton *)button

@@ -25,9 +25,9 @@
 }
 
 
-+ (UIImageView *)createImageViewWithImageName:(NSString *)imageName
++ (UIImageView *)createImageViewWithImageName:(NSString *)imageName withEdgeInset:(UIEdgeInsets)edgeInset
 {
-   return  [[[ThemeImageView alloc] initWithImageName:imageName] autorelease];
+   return  [[[ThemeImageView alloc] initWithImageName:imageName ithEdgeInset:edgeInset] autorelease];
 }
 
 + (UILabel *)createLabelWithFontColorName:(NSString *)fontColorName

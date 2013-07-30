@@ -28,14 +28,17 @@
 - (void)themeImage
 {
     UIImage *image = [[ThemeManager shareInstance] themeImageWithName:self.imageName];
+    image = [image resizableImageWithCapInsets:self.edgeInset];
+   
     self.image = image;
 }
 
-- (id)initWithImageName:(NSString *)imageName
+- (id)initWithImageName:(NSString *)imageName ithEdgeInset:(UIEdgeInsets)edgeInset
 {
     self = [self init];
     if (self) {
          self.imageName = imageName;
+         self.edgeInset = edgeInset;
     }
     return self;
 }
@@ -47,6 +50,13 @@
         _imageName = [imageName retain];
         [self themeImage];
     }
+}
+
+ - (void)setEdgeInset:(UIEdgeInsets)edgeInset
+{
+    _edgeInset = edgeInset;
+    [self themeImage];
+
 }
 
 - (void)awakeFromNib

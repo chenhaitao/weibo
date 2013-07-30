@@ -12,5 +12,6 @@
 @interface MainViewController : UITabBarController <SinaWeiboDelegate>
 
 @property (nonatomic,strong) UIView *tabbarView;
+@property (nonatomic,strong) UIView *sliderView;
 
 @end

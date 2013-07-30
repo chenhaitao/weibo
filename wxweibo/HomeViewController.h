@@ -10,7 +10,8 @@
 #import "ThemeImageView.h"
 #import "ThemeLabel.h"
 
-@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate>
+@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate,UITableViewDataSource,UITableViewDelegate>
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 
 @end
