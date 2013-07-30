@@ -519,6 +519,7 @@
 		5FA424EC179D6DA50001A0E8 /* DiscoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA424EA179D6DA50001A0E8 /* DiscoverViewController.xib */; };
 		5FA424F0179D6DC10001A0E8 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA424EE179D6DC10001A0E8 /* MoreViewController.m */; };
 		5FA424F1179D6DC10001A0E8 /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FA424EF179D6DC10001A0E8 /* MoreViewController.xib */; };
+		5FA4839D17A79D4E0050745C /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA4839C17A79D4E0050745C /* NSString+URLEncoding.m */; };
 		5FA5A13D17A768F300DCDF66 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5A13017A768F300DCDF66 /* SDImageCache.m */; };
 		5FA5A13E17A768F300DCDF66 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5A13417A768F300DCDF66 /* SDWebImageDownloader.m */; };
 		5FA5A13F17A768F300DCDF66 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA5A13717A768F300DCDF66 /* SDWebImageManager.m */; };
@@ -1071,6 +1072,8 @@
 		5FA424ED179D6DC10001A0E8 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
 		5FA424EE179D6DC10001A0E8 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
 		5FA424EF179D6DC10001A0E8 /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
+		5FA4839B17A79D4E0050745C /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		5FA4839C17A79D4E0050745C /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		5FA5A12F17A768F300DCDF66 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		5FA5A13017A768F300DCDF66 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		5FA5A13117A768F300DCDF66 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -1694,6 +1697,8 @@
 		5F984890179C246B004CDE73 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				5FA4839B17A79D4E0050745C /* NSString+URLEncoding.h */,
+				5FA4839C17A79D4E0050745C /* NSString+URLEncoding.m */,
 				5FA5A12E17A768F300DCDF66 /* SDWebImage */,
 				5F15B7C417A0B9D500990B3E /* image */,
 				5FA118E0179FA79D00AEB391 /* Skins */,
@@ -2435,6 +2440,7 @@
 				5FA5A13F17A768F300DCDF66 /* SDWebImageManager.m in Sources */,
 				5FA5A14017A768F300DCDF66 /* UIButton+WebCache.m in Sources */,
 				5FA5A14117A768F300DCDF66 /* UIImageView+WebCache.m in Sources */,
+				5FA4839D17A79D4E0050745C /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

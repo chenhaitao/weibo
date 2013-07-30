@@ -10,6 +10,8 @@
 #import "RTLabel.h"
 #import "Factory.h"
 #import "UIImageView+WebCache.h"
+#import "NSString+URLEncoding.h"
+#import "RegexKitLite.h"
 
 
 @interface WeiboView ()
@@ -38,6 +40,7 @@
     self.textLabel.linkAttributes = [NSDictionary dictionaryWithObject:@"blue" forKey:@"color"];
     self.textLabel.selectedLinkAttributes = [NSDictionary dictionaryWithObject:@"red" forKey:@"color"];
     self.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    self.textLabel.userInteractionEnabled = YES;
     self.textLabel.delegate = self;
     [self addSubview:self.textLabel];
     
@@ -48,6 +51,7 @@
     
     //初始化转发的微博的背景图片
     self.repostViewBackgroundView = (ThemeImageView *)[Factory createImageViewWithImageName:@"timeline_retweet_background.png" withEdgeInset: UIEdgeInsetsMake(10, 25, 5, 5)];
+    self.repostViewBackgroundView.userInteractionEnabled = YES;
     [self insertSubview:self.repostViewBackgroundView atIndex:0];
     
 }
@@ -56,7 +60,7 @@
 //点击超链接处理事件
 - (void)rtLabel:(id)rtLabel didSelectLinkWithURL:(NSURL*)url
 {
-
+    NSLog(@"%@",url);
 }
 
 #pragma mark -
@@ -75,14 +79,47 @@
         [self addSubview:self.repostView];
     }
     
+    [self changeLinkString];
+}
+
+- (void)changeLinkString
+{
+    
+    NSString *text = self.weiboModel.text;
+    
+    if (self.linkString) {
+        [self.linkString setString:@""];
+    }else{
+        self.linkString = [NSMutableString string];
+    }
+    
+    NSString *relexStr = @"(@\\w+)|(#\\w+#)|(http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?)";
+    NSArray *strs = [self.weiboModel.text componentsMatchedByRegex:relexStr];
+    NSString *replaceString = nil;
+    for (NSString *str in strs) {
+        if ([str hasPrefix:@"@"]) {
+            replaceString = [NSString stringWithFormat:@"<a href='user://%@'>%@</a>",[str  URLEncodedString],str];
+        }else if([str hasPrefix:@"http"]){
+            replaceString = [NSString stringWithFormat:@"<a href='%@'>%@</a>",[str  URLEncodedString],str];
+        }else if([str hasPrefix:@"#"]){
+            replaceString = [NSString stringWithFormat:@"<a href='topic://%@'>%@</a>",[str  URLEncodedString],str];
+        }
+    text = [text stringByReplacingOccurrencesOfString:str withString:replaceString];
+    }
+    
+    
+   [self.linkString appendString:text];
+}
+- (void)test
+{
+    NSLog(@"test");
 }
 
 //展示数据，设置布局
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
-    
+        
     //微博内容子视图
     self.textLabel.frame = CGRectMake(0, 0, self.bounds.size.width, 0);
     CGFloat sizeFont = [WeiboView fontSize:self.isDetail isRepost:self.isRepost];
@@ -91,7 +128,7 @@
     if (self.isRepost) {
         self.textLabel.frame = CGRectMake(10, 10, self.bounds.size.width - 20, 0);
     }
-    self.textLabel.text = self.weiboModel.text;
+    self.textLabel.text = self.linkString;
     CGSize size = self.textLabel.optimumSize;
     self.textLabel.height = size.height;
     

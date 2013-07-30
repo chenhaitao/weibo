@@ -25,6 +25,8 @@
 
 //当前微博视图是否在详情页面
 @property (nonatomic,assign) BOOL isDetail;
+//将超链接替换后的微博内容
+@property (nonatomic,strong) NSMutableString *linkString;
 
 //获取微博文本字体
 + (CGFloat)fontSize:(BOOL)isDetail isRepost:(BOOL)isRepost;

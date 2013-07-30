@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "WeiboModel.h"
 #import "WeiboCell.h"
+#import "NSString+RMURLEncoding.h"
 
 @interface HomeViewController ()
 
@@ -40,6 +41,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,7 +105,7 @@
     }
    
     cell.weiboModel = self.weiboData[indexPath.row];
-    
+
     return cell;
 }
 
@@ -112,6 +114,11 @@
     CGFloat height = [WeiboView heightForWeiboView:self.weiboData[indexPath.row] andIsRepost:NO andIsDetail:NO];
     
     return height + 40;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   
 }
 
 #pragma mark -

@@ -42,6 +42,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self _initSubViews];
+         self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -90,6 +92,9 @@
     //微博视图
     self.weiboView = [[WeiboView alloc] initWithFrame:CGRectZero];
     [self.contentView addSubview:self.weiboView];
+   
+    
+   
 }
 
 
@@ -107,6 +112,7 @@
     self.weiboView.weiboModel = self.weiboModel;
     CGFloat height = [WeiboView heightForWeiboView:self.weiboModel andIsRepost:NO andIsDetail:NO];
     self.weiboView.frame = CGRectMake(50, self.nickLabel.bottom + 10,kWeiboViewListWidth, height);
+    
     
 }
 
