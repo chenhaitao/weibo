@@ -113,6 +113,18 @@
     CGFloat height = [WeiboView heightForWeiboView:self.weiboModel andIsRepost:NO andIsDetail:NO];
     self.weiboView.frame = CGRectMake(50, self.nickLabel.bottom + 10,kWeiboViewListWidth, height);
     
+     //微博创建时间
+    NSString *createTime = self.weiboModel.createDate;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"E M dd HH:mm:ss z yyyy"];
+    NSDate *createDate = [formatter dateFromString:createTime];
+    [formatter setDateFormat:@"HH:mm M:dd"];
+    NSString *dateStr = [formatter stringFromDate:createDate];
+    self.createlabel.text = dateStr;
+    self.createlabel.frame = CGRectMake(50, self.weiboView.bottom, 100, 20);
+    self.createlabel.textColor = [UIColor blueColor];
+    [self.createlabel sizeToFit];
+    
     
 }
 

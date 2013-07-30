@@ -203,6 +203,10 @@
     }else{
         label.width = kWeiboViewListWidth;
     }
+    if (isRepost) {
+        label.width -= 20;
+    }
+    
     label.text = weiboModel.text;
     CGSize size = label.optimumSize;
     height += size.height;
@@ -216,7 +220,7 @@
     }
     
     if (isRepost) {
-        height += 30;
+        height += 20;
     }
     
     return height;

@@ -113,7 +113,7 @@
 {
     CGFloat height = [WeiboView heightForWeiboView:self.weiboData[indexPath.row] andIsRepost:NO andIsDetail:NO];
     
-    return height + 40;
+    return height + 60;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
