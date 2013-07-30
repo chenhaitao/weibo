@@ -60,7 +60,17 @@
 //点击超链接处理事件
 - (void)rtLabel:(id)rtLabel didSelectLinkWithURL:(NSURL*)url
 {
-    NSLog(@"%@",url);
+    NSString *urlStr = [url absoluteString];
+    if ([urlStr hasPrefix:@"user"]) {
+        NSString *user = [[url host] URLDecodedString];
+        NSLog(@"%@",user);
+    }else if([urlStr  hasPrefix:@"http"]){
+        NSString *http = [urlStr URLDecodedString];
+        NSLog(@"%@",http);
+    }else if([urlStr hasPrefix:@"topic"]){
+        NSString *topic = [[url host] URLDecodedString];
+        NSLog(@"%@",topic);
+    }
 }
 
 #pragma mark -
@@ -110,10 +120,7 @@
     
    [self.linkString appendString:text];
 }
-- (void)test
-{
-    NSLog(@"test");
-}
+
 
 //展示数据，设置布局
 - (void)layoutSubviews
