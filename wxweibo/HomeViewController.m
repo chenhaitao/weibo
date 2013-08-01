@@ -34,15 +34,37 @@
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"绑定帐户" style:UIBarButtonItemStylePlain target:self action:@selector(bindAction:)] autorelease];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction:)];
     
+    self.tableView.refreshDelegate = self;
+    
+    
     //判断微博授权是否可用
     if (self.sinaWeibo.isLoggedIn) {
         [self loadData];
     }
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+   
 
 }
+
+#pragma mark - refreshDelegate methods
+- (void)pullDown:(BaseTableView *)tableview
+{
+    
+    [tableview performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3];
+}
+
+- (void)pullUp:(BaseTableView *)tableView
+{
+
+}
+
+- (void)baseTableView:(BaseTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+}
+
+#pragma mark -
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -84,44 +106,11 @@
         [weibos addObject:weibo];
         [weibo release];
     }
-    self.weiboData = weibos;
+    self.tableView.data = weibos;
     [self.tableView reloadData];
 }
 
-#pragma mark - UITableView delegate and datasource methods
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.weiboData.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    WeiboCell *cell = nil;
-    static NSString *cellIdentifier = @"WeiboCell";
-    cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[[WeiboCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
-    }
-   
-    cell.weiboModel = self.weiboData[indexPath.row];
-   
-    return cell;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat height = [WeiboView heightForWeiboView:self.weiboData[indexPath.row] andIsRepost:NO andIsDetail:NO];
-    
-    return height + 60;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-   
-}
-
-#pragma mark -
 
 
 - (void)dealloc {

@@ -480,6 +480,8 @@
 		5F15BB7317A0EC9C00990B3E /* ThemeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15BB7217A0EC9C00990B3E /* ThemeLabel.m */; };
 		5F15BB7917A120F100990B3E /* WeiboModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15BB7817A120F100990B3E /* WeiboModel.m */; };
 		5F15BB7C17A1211200990B3E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15BB7B17A1211200990B3E /* UserModel.m */; };
+		5F291CA317A8019E004B7D05 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F291CA217A8019E004B7D05 /* BaseTableView.m */; };
+		5F291CA617A80F2C004B7D05 /* WeiboTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F291CA517A80F2C004B7D05 /* WeiboTableView.m */; };
 		5F61F19517A201BB001E2ACB /* WeiboCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F61F19417A201BB001E2ACB /* WeiboCell.m */; };
 		5F61F19817A201CD001E2ACB /* WeiboView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F61F19717A201CD001E2ACB /* WeiboView.m */; };
 		5F984866179C14D6004CDE73 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F984865179C14D6004CDE73 /* UIKit.framework */; };
@@ -1009,6 +1011,10 @@
 		5F15BB7817A120F100990B3E /* WeiboModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboModel.m; sourceTree = "<group>"; };
 		5F15BB7A17A1211200990B3E /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		5F15BB7B17A1211200990B3E /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		5F291CA117A8019E004B7D05 /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		5F291CA217A8019E004B7D05 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		5F291CA417A80F2C004B7D05 /* WeiboTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboTableView.h; sourceTree = "<group>"; };
+		5F291CA517A80F2C004B7D05 /* WeiboTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboTableView.m; sourceTree = "<group>"; };
 		5F61F19317A201BB001E2ACB /* WeiboCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboCell.h; sourceTree = "<group>"; };
 		5F61F19417A201BB001E2ACB /* WeiboCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeiboCell.m; sourceTree = "<group>"; };
 		5F61F19617A201CD001E2ACB /* WeiboView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboView.h; sourceTree = "<group>"; };
@@ -1723,6 +1729,8 @@
 				5F9848DB179C2B08004CDE73 /* BaseViewController.m */,
 				5F9848DD179C2FA4004CDE73 /* BaseNavigationController.h */,
 				5F9848DE179C2FA4004CDE73 /* BaseNavigationController.m */,
+				5F291CA117A8019E004B7D05 /* BaseTableView.h */,
+				5F291CA217A8019E004B7D05 /* BaseTableView.m */,
 			);
 			name = BaseViewController;
 			sourceTree = "<group>";
@@ -1750,6 +1758,8 @@
 			children = (
 				5FA424D9179D6BD70001A0E8 /* HomeViewController.h */,
 				5FA424DA179D6BD70001A0E8 /* HomeViewController.m */,
+				5F291CA417A80F2C004B7D05 /* WeiboTableView.h */,
+				5F291CA517A80F2C004B7D05 /* WeiboTableView.m */,
 				5FA424DB179D6BD70001A0E8 /* HomeViewController.xib */,
 				5FD4BAF0179F6D2F0075380A /* LeftViewController.h */,
 				5FD4BAF1179F6D2F0075380A /* LeftViewController.m */,
@@ -2441,6 +2451,8 @@
 				5FA5A14017A768F300DCDF66 /* UIButton+WebCache.m in Sources */,
 				5FA5A14117A768F300DCDF66 /* UIImageView+WebCache.m in Sources */,
 				5FA4839D17A79D4E0050745C /* NSString+URLEncoding.m in Sources */,
+				5F291CA317A8019E004B7D05 /* BaseTableView.m in Sources */,
+				5F291CA617A80F2C004B7D05 /* WeiboTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

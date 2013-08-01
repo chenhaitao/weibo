@@ -9,9 +9,11 @@
 #import "BaseViewController.h"
 #import "ThemeImageView.h"
 #import "ThemeLabel.h"
+#import "WeiboTableView.h"
 
-@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate,UITableViewDataSource,UITableViewDelegate>
-@property (retain, nonatomic) IBOutlet UITableView *tableView;
+@interface HomeViewController : BaseViewController <SinaWeiboRequestDelegate,RefreshTableViewDelegate>
+
+@property (retain, nonatomic) IBOutlet WeiboTableView *tableView;
 
 
 @end
