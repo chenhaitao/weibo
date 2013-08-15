@@ -46,11 +46,49 @@
 
 }
 
+- (void)pullDownLoadData
+{//since_id
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:@"20" forKey:@"count"];
+    if (self.topWeiboId.length == 0) {
+        NSLog(@"topWeiboId为空！");
+        [self.tableView performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:1];
+        return;
+    }
+    [params setObject:self.topWeiboId forKey:@"since_id"];
+    [self.sinaWeibo requestWithURL:@"statuses/home_timeline.json" params:params httpMethod:@"GET" block:^(id result) {
+        
+        NSArray *statuses = [result objectForKey:@"statuses"];
+        NSMutableArray *weibos = [NSMutableArray arrayWithCapacity:statuses.count];
+        for (NSDictionary *dic in statuses) {
+            WeiboModel *weibo = [[WeiboModel alloc] initWithDataDic:dic];
+            [weibos addObject:weibo];
+            [weibo release];
+        }
+        
+        if (weibos.count > 0) {
+            WeiboModel *weibo = (WeiboModel *)[weibos objectAtIndex:0];
+            self.topWeiboId = weibo.weiboId.stringValue;
+            [weibos addObjectsFromArray:self.weibos];
+            self.weibos = weibos;
+            self.tableView.data = self.weibos;
+            [self.tableView reloadData];
+        }
+        
+        [self.tableView doneLoadingTableViewData];
+        
+        //显示了刷新了多少条微博
+        NSInteger number = weibos.count;
+        NSLog(@"更新微博%i条！",number);
+    }];
+}
+
+
 #pragma mark - refreshDelegate methods
 - (void)pullDown:(BaseTableView *)tableview
 {
-    
-    [tableview performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3];
+    [self pullDownLoadData];
+    //[tableview performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3];
 }
 
 - (void)pullUp:(BaseTableView *)tableView
@@ -86,7 +124,7 @@
 - (void)loadData
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setObject:@"5" forKey:@"count"];
+    [params setObject:@"20" forKey:@"count"];
     [self.sinaWeibo requestWithURL:@"statuses/home_timeline.json" params:params httpMethod:@"GET" delegate:self];
 }
 
@@ -106,8 +144,17 @@
         [weibos addObject:weibo];
         [weibo release];
     }
-    self.tableView.data = weibos;
-    [self.tableView reloadData];
+    
+    
+    
+    if (weibos.count > 0) {
+        WeiboModel *weibo = (WeiboModel *)[weibos objectAtIndex:0];
+        self.topWeiboId = weibo.weiboId.stringValue;
+        self.tableView.data = weibos;
+        [self.tableView reloadData];
+    }
+    
+    
 }
 
 

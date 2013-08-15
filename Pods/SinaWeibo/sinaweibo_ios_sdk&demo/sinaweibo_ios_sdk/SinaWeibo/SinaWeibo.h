@@ -69,6 +69,13 @@
                          httpMethod:(NSString *)httpMethod
                            delegate:(id<SinaWeiboRequestDelegate>)delegate;
 
+//....chenhaitao....
+- (SinaWeiboRequest*)requestWithURL:(NSString *)url
+                             params:(NSMutableDictionary *)params
+                         httpMethod:(NSString *)httpMethod
+                              block:(SinaWeiboRequestBlock)block;
+//......chenhaitao.....
+
 @end
 
 

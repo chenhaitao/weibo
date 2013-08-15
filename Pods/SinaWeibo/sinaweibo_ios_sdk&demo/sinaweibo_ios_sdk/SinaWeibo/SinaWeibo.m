@@ -399,6 +399,45 @@
     }
 }
 
+
+//....chenhaitao....
+- (SinaWeiboRequest*)requestWithURL:(NSString *)url
+                             params:(NSMutableDictionary *)params
+                         httpMethod:(NSString *)httpMethod
+                              block:(SinaWeiboRequestBlock)block
+{
+    if (params == nil)
+    {
+        params = [NSMutableDictionary dictionary];
+    }
+    
+    if ([self isAuthValid])
+    {
+        [params setValue:self.accessToken forKey:@"access_token"];
+        NSString *fullURL = [kSinaWeiboSDKAPIDomain stringByAppendingString:url];
+        
+        SinaWeiboRequest *_request = [SinaWeiboRequest requestWithURL:fullURL
+                                                           httpMethod:httpMethod
+                                                               params:params
+                                                             block:block];
+        _request.sinaweibo = self;
+        [requests addObject:_request];
+        [_request connect];
+        return _request;
+    }
+    else
+    {
+        //notify token expired in next runloop
+        [self performSelectorOnMainThread:@selector(notifyTokenExpired:)
+                               withObject:nil
+                            waitUntilDone:NO];
+        
+        return nil;
+    }
+}
+//......chenhaitao.....
+
+
 #pragma mark - SinaWeiboAuthorizeView Delegate
 
 - (void)authorizeView:(SinaWeiboAuthorizeView *)authView didRecieveAuthorizationCode:(NSString *)code

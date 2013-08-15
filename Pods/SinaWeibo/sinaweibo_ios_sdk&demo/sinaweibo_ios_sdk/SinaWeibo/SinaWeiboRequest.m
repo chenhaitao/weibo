@@ -149,6 +149,7 @@
     {
         [delegate request:self didReceiveRawData:data];
     }
+
 	
 	NSError *error = nil;
 	id result = [self parseJSONData:data error:&error];
@@ -194,6 +195,11 @@
             if ([delegate respondsToSelector:@selector(request:didFinishLoadingWithResult:)])
             {
                 [delegate request:self didFinishLoadingWithResult:(result == nil ? data : result)];
+            }
+            
+            if (self.block) {
+                self.block(result == nil ? data : result);
+                Block_release(_block);
             }
         }
 	}
@@ -408,5 +414,17 @@
     
     [sinaweibo requestDidFinish:self];
 }
+
+//.....chenhaitao......
++ (SinaWeiboRequest *)requestWithURL:(NSString *)url
+                          httpMethod:(NSString *)httpMethod
+                              params:(NSDictionary *)params
+                               block:(SinaWeiboRequestBlock)block{
+  SinaWeiboRequest *request =  [self requestWithURL:url httpMethod:httpMethod params:params delegate:nil];
+    request.block = block;
+    return request;
+    
+}
+//.....chenhaitao......
 
 @end

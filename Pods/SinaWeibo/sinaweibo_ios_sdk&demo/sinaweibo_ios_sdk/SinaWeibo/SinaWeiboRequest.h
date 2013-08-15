@@ -32,6 +32,10 @@
 - (void)request:(SinaWeiboRequest *)request didFinishLoadingWithResult:(id)result;
 @end
 
+//.....chenhaitao......
+typedef void (^SinaWeiboRequestBlock)(id result);
+//.....chenhaitao......
+
 @interface SinaWeiboRequest : NSObject
 {
     SinaWeibo                       *sinaweibo;//weak reference
@@ -51,6 +55,15 @@
 @property (nonatomic, retain) NSString *httpMethod;
 @property (nonatomic, retain) NSDictionary *params;
 @property (nonatomic, assign) id<SinaWeiboRequestDelegate> delegate;
+//.....chenhaitao......
+@property (nonatomic,strong) SinaWeiboRequestBlock block;
++ (SinaWeiboRequest *)requestWithURL:(NSString *)url
+                          httpMethod:(NSString *)httpMethod
+                              params:(NSDictionary *)params
+                               block:(SinaWeiboRequestBlock)block;
+//.....chenhaitao......
+
+
 
 + (SinaWeiboRequest *)requestWithURL:(NSString *)url 
                           httpMethod:(NSString *)httpMethod 

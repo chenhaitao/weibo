@@ -15,5 +15,6 @@
 
 @property (retain, nonatomic) IBOutlet WeiboTableView *tableView;
 
-
+@property (nonatomic,strong) NSString *topWeiboId;
+@property (nonatomic,strong) NSMutableArray *weibos;
 @end
